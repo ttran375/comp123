@@ -28,3 +28,5 @@ while (line != null)                             //Stop if you didn’t read any
 }
 
 reader.Close();                                 //Now close the stream object
+
+File.ReadAllText(filename);
