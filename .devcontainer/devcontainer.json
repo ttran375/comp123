@@ -1,0 +1,21 @@
+{
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "GitHub.codespaces",
+        "vsls-contrib.gitdoc",
+        "ms-vscode-remote.remote-containers",
+        "ms-dotnettools.csdevkit",
+        "kreativ-software.csharpextensions",
+        "jorgeserrano.vscode-csharp-snippets",
+        "vain0x.csharp-gen-ctor",
+        "afmicc.GetterAndSetterGenerator",
+        "EditorConfig.EditorConfig",
+        "DavidAnson.vscode-markdownlint",
+        "streetsidesoftware.code-spell-checker"
+      ]
+    }
+  }
+}
