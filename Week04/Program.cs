@@ -1,69 +1,62 @@
 ﻿namespace Week04;
 
+using System;
+using System.Collections.Generic;
+using System.IO;
+
 class Program
 {
-    public static void Main(string[] args)
+    static void Main()
     {
-        String filename = "output.txt";
-        // TextWriter writer = new StreamWriter(filename);  //Declare and initialise 
-        //                                                  //the object to write to
+        string filename = "people.csv"; // Update with your CSV file path
 
-        // writer.Write("Narendra");                      //Do some writing
-        // writer.WriteLine("Pershad");
-        // writer.WriteLine("================");
+        // Declare and initialize a text reader
+        TextReader reader = new StreamReader(filename);
 
-        // for (int i = 1; i <= 12; i++)
-        // {
-        //     writer.WriteLine($"{i,2} x 15 = {i * 15}");     //Do more writing
-        // }
+        // List to store the objects
+        List<Person> persons = new List<Person>();
 
-        // writer.Close();                                  //Now close the stream object
+        // Read the first line
+        string line = reader.ReadLine();
 
-
-        // TextReader reader = new StreamReader(filename); //Initialise the reader object
-
-        // string line = reader.ReadLine();                //Do some reading
-        // Console.WriteLine(line);                        //Display what was read
-
-        // line = reader.ReadLine();                       //Do some reading
-
-        // while (line != null)                             //Stop if you didn’t read anything
-        // {
-        //     Console.WriteLine(line);                      //Display what was read
-        //     line = reader.ReadLine();                     //Do more reading
-        // }
-
-        // reader.Close();                                 //Now close the stream object
-
-        // File.ReadAllText(filename);
-
-        TextReader reader = new StreamReader(filename);  //Declare and initialise a text reader
-        List<Person> persons = new List<Person>();      //list to store the objects                                          
-        string line = reader.ReadLine();                 //read the first line
-        while (line != null)                              //read the first line
+        // Read the file line by line
+        while (line != null)
         {
-            string[] values = line.Split('\t');
+            // Split the line by comma (',') for CSV
+            string[] values = line.Split(',');
+
+            // Check if the array has enough elements
             if (values.Length >= 4)
             {
+                // Extract values and create a new Person object
                 string name = values[0];
                 double weight = Convert.ToDouble(values[1]);
                 int age = Convert.ToInt32(values[2]);
                 bool isMarried = Convert.ToBoolean(values[3]);
-                persons.Add(new Person(name, age, weight, isMarried)); //add object to the list
+
+                // Add the object to the list
+                persons.Add(new Person(name, age, weight, isMarried));
             }
             else
             {
-                Console.WriteLine($"Line '{line}' does not contain the expected number of elements.");
+                // Handle the case where the array doesn't have enough elements
+                Console.WriteLine("Invalid data format in line: " + line);
             }
-            string name = values[0];
-            double weight = Convert.ToDouble(values[1]);
-            int age = Convert.ToInt32(values[2]);
-            bool isMarried = Convert.ToBoolean(values[3]);
-            persons.Add(new Person(name, age, weight, isMarried)); //add object to the list
-            line = reader.ReadLine();                      //read the next line
+
+            // Read the next line
+            line = reader.ReadLine();
         }
 
-        reader.Close();                                  //Now close the stream object
+        // Close the stream object
+        reader.Close();
 
+        // Now, the 'persons' list contains the data as Person objects
+        // You can use this list as needed in your application
+
+        // print the list
+        foreach (Person person in persons)
+        {
+            Console.WriteLine(person);
+        }
     }
 }
