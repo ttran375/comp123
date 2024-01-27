@@ -13,4 +13,9 @@ class Person
         Name = name; Age = age; Weight = weight;
         IsMarried = isMarried;
     }
+
+    public override string ToString()
+    {
+        return $"{Name} is {Age} years old, weighs {Weight} kg and is {(IsMarried ? "" : "not ")}married";
+    }
 }
