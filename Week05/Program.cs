@@ -7,6 +7,15 @@ public class Student
     public string Name { get; set; }
     public int Age { get; set; }
     public string Address { get; set; }
+
+    public Student() { }
+
+    public Student(string name, int age, string address)
+    {
+        Name = name;
+        Age = age;
+        Address = address;
+    }
 }
 
 public class Program
