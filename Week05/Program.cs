@@ -1,23 +1,24 @@
 ﻿using System;
 using System.IO;
-using System.Text.Json;
+using System.Xml.Serialization;
 
-public class MyClass
+public class Student
 {
-    public int MyProperty { get; set; }
+    // Assuming Student class has these properties
+    public string Name { get; set; }
+    public int Age { get; set; }
 }
 
 public class Program
 {
     public static void Main(string[] args)
     {
-        MyClass deserializedObject;
+        var student = new Student { Name = "John Doe", Age = 20 };
 
-        using (FileStream fs = new FileStream("MyFile.json", FileMode.Open))
+        XmlSerializer serializer = new XmlSerializer(typeof(Student));
+        using (TextWriter writer = new StreamWriter("Student.xml"))
         {
-            deserializedObject = JsonSerializer.DeserializeAsync<MyClass>(fs).Result;
+            serializer.Serialize(writer, student);
         }
-
-        Console.WriteLine(deserializedObject.MyProperty);
     }
 }
