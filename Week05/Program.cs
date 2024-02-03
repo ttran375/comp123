@@ -8,7 +8,13 @@ public class Student
     public int Age { get; set; }
     public string Address { get; set; }
 
-    public Student() { }
+    public Student()
+    {
+
+        Name = "John Doe";
+        Age = 20;
+        Address = "123 Main St";
+    }
 
     public Student(string name, int age, string address)
     {
