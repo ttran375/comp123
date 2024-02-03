@@ -8,19 +8,9 @@ public class Student
     public int Age { get; set; }
     public string Address { get; set; }
 
-    public Student()
+    public override string ToString()
     {
-
-        Name = "John Doe";
-        Age = 20;
-        Address = "123 Main St";
-    }
-
-    public Student(string name, int age, string address)
-    {
-        Name = name;
-        Age = age;
-        Address = address;
+        return $"Name: {Name}, Age: {Age}, Address: {Address}";
     }
 }
 
@@ -28,15 +18,11 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        Student student = new()
+        XmlSerializer serializer = new XmlSerializer(typeof(Student));
+        using (TextReader reader = new StreamReader("Student.xml"))
         {
-            Name = "John Doe",
-            Age = 20,
-            Address = "123 Main St"
-        };
-
-        XmlSerializer serializer = new(typeof(Student));
-        using TextWriter writer = new StreamWriter("Student.xml");
-        serializer.Serialize(writer, student);
+            Student student = (Student)serializer.Deserialize(reader);
+            Console.WriteLine(student);
+        }
     }
 }
