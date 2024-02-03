@@ -6,22 +6,22 @@ public class Student
 {
     public string Name { get; set; }
     public int Age { get; set; }
-
-    public override string ToString()
-    {
-        return $"Name: {Name}, Age: {Age}";
-    }
+    public string Address { get; set; }
 }
 
 public class Program
 {
     public static void Main(string[] args)
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(Student));
-        using (TextReader reader = new StreamReader("Student.xml"))
+        Student student = new()
         {
-            Student student = (Student)serializer.Deserialize(reader);
-            Console.WriteLine(student);
-        }
+            Name = "John Doe",
+            Age = 20,
+            Address = "123 Main St"
+        };
+
+        XmlSerializer serializer = new(typeof(Student));
+        using TextWriter writer = new StreamWriter("Student.xml");
+        serializer.Serialize(writer, student);
     }
 }

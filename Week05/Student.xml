@@ -2,4 +2,5 @@
 <Student xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Name>John Doe</Name>
   <Age>20</Age>
+  <Address>123 Main St</Address>
 </Student>
