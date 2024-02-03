@@ -33,13 +33,6 @@ public class Program
         Item item = new Item { Name = "Bananas", Quantity = 2, Price = 0.49 };
         File.WriteAllText("item.json", JsonSerializer.Serialize(item));
 
-        // Deserialize Item
-        using (TextReader reader = new StreamReader("item.json"))
-        {
-            Item deserializedItem = JsonSerializer.Deserialize<Item>(reader.ReadToEnd());
-            Console.WriteLine($"Item: {deserializedItem.Name}, Quantity: {deserializedItem.Quantity}, Price: {deserializedItem.Price}");
-        }
-
         // Serialize Person
         Person p = new Person
         {
@@ -49,6 +42,13 @@ public class Program
             WorkAddress = new Address { Street = "941 Progress Avenue", PostalCode = "M1K5E9" }
         };
         File.WriteAllText("person.json", JsonSerializer.Serialize(p));
+
+        // Deserialize Item
+        using (TextReader reader = new StreamReader("item.json"))
+        {
+            Item deserializedItem = JsonSerializer.Deserialize<Item>(reader.ReadToEnd());
+            Console.WriteLine($"Item: {deserializedItem.Name}, Quantity: {deserializedItem.Quantity}, Price: {deserializedItem.Price}");
+        }
 
         // Deserialize Person
         using (TextReader reader = new StreamReader("person.json"))
