@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
 using System.IO;
 
 [Serializable]
@@ -15,10 +15,10 @@ public class Program
         // Define the object you want to serialize here.
         var objectToSerialize = new MyClass { MyProperty = 123 };
 
-        BinaryFormatter formatter = new BinaryFormatter();
-        using (Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None))
+        XmlSerializer serializer = new XmlSerializer(typeof(MyClass));
+        using (TextWriter writer = new StreamWriter("MyFile.xml"))
         {
-            formatter.Serialize(stream, objectToSerialize);
+            serializer.Serialize(writer, objectToSerialize);
         }
     }
 }
