@@ -20,5 +20,14 @@ public class Program
         {
             serializer.Serialize(writer, objectToSerialize);
         }
+
+        // Now let's deserialize the object from the XML file
+        MyClass deserializedObject;
+        using (TextReader reader = new StreamReader("MyFile.xml"))
+        {
+            deserializedObject = (MyClass)serializer.Deserialize(reader);
+        }
+
+        Console.WriteLine(deserializedObject.MyProperty);
     }
 }
