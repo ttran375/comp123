@@ -7,17 +7,21 @@ public class Student
     public string? Name { get; set; }
     public int Age { get; set; }
     public string? Address { get; set; }
+
+    public override string ToString()
+    {
+        return $"Name: {Name}, Age: {Age}, Address: {Address}";
+    }
 }
 
 public class Program
 {
     public static void Main(string[] args)
     {
-        var student = new Student { Name = "John Doe", Age = 20, Address = "123 Main St" };
-
-        using (TextWriter writer = new StreamWriter("Student.json"))
+        using (TextReader reader = new StreamReader("Student.json"))
         {
-            writer.Write(JsonSerializer.Serialize(student));
+            Student? student = JsonSerializer.Deserialize<Student>(reader.ReadToEnd());
+            Console.WriteLine(student);
         }
     }
 }
