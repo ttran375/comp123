@@ -4,21 +4,24 @@ using System.Xml.Serialization;
 
 public class Student
 {
-    // Assuming Student class has these properties
     public string Name { get; set; }
     public int Age { get; set; }
+
+    public override string ToString()
+    {
+        return $"Name: {Name}, Age: {Age}";
+    }
 }
 
 public class Program
 {
     public static void Main(string[] args)
     {
-        var student = new Student { Name = "John Doe", Age = 20 };
-
         XmlSerializer serializer = new XmlSerializer(typeof(Student));
-        using (TextWriter writer = new StreamWriter("Student.xml"))
+        using (TextReader reader = new StreamReader("Student.xml"))
         {
-            serializer.Serialize(writer, student);
+            Student student = (Student)serializer.Deserialize(reader);
+            Console.WriteLine(student);
         }
     }
 }
