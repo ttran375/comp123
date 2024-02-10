@@ -2,14 +2,16 @@
 {
     static void Main(string[] args)
     {
-        // Create a new Person object with a new Address
-        Person person = new Person(new Address("123", "Main St", "Anytown", "Anystate", "AnyCountry", "AnyProvince", "12345"));
+        // Create a new Person object with a name and a new Address
+        Person person = new Person("John Doe", new Address("123", "Main St", "Anytown", "Anystate", "AnyCountry", "AnyProvince", "12345"));
 
         // Add some phone numbers to the person
         person.AddPhoneNumber(new PhoneNumber("123-456-7890", "Home"));
         person.AddPhoneNumber(new PhoneNumber("098-765-4321", "Mobile"));
 
-        // Print out the person's phone numbers
+        // Print out the person's name, address, and phone numbers
+        Console.WriteLine($"Name: {person.Name}");
+        Console.WriteLine($"Address: {person.Address}");
         foreach (PhoneNumber phoneNumber in person.PhoneNumbers)
         {
             Console.WriteLine(phoneNumber);
@@ -63,12 +65,14 @@ public class PhoneNumber
 
 class Person
 {
-    private Address address;
+    public string Name { get; set; }
+    public Address Address { get; private set; }
     public List<PhoneNumber> PhoneNumbers { get; set; }
 
-    public Person(Address address)
+    public Person(string name, Address address)
     {
-        this.address = address;
+        Name = name;
+        Address = address;
         PhoneNumbers = new List<PhoneNumber>();
     }
 
