@@ -1,6 +1,6 @@
 ﻿class AParent
 {
-    public void HiddenMethod()
+    public virtual void HiddenMethod()
     {
         Console.WriteLine("In Parent");
     }
@@ -8,7 +8,7 @@
 
 class AChild : AParent
 {
-    new public void HiddenMethod()
+    public void HiddenMethod()
     {
         Console.WriteLine("In Child");
     }
