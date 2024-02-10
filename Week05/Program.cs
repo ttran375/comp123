@@ -1,56 +1,37 @@
-﻿
+﻿using System;
 
-using System;
+abstract class AnotherParent
+{
+    public virtual void E() { Console.WriteLine("Executing E in AnotherParent"); }
+}
+
+abstract class Parent : AnotherParent
+{
+    public int A = 0; // Assign a default value
+    public string B { get; } = ""; // Assign a default value
+    public virtual string C { get; } = ""; // Assign a default value
+    public virtual void D() { Console.WriteLine("Executing D in Parent"); }
+    public override void E() { Console.WriteLine("Executing E in Parent"); }
+    public abstract void F();
+}
+
+class Child : Parent
+{
+    public override string C
+    {
+        get { return "Narendra"; }
+    }
+
+    public override void D() { Console.WriteLine("Executing D in Child"); }
+    public override void F() { Console.WriteLine("Executing F in Child"); }
+}
+
 class Program
 {
     static void Main(string[] args)
     {
-        X x = new X();
-        x.A();
-        x.B();
-
-        Y y = new Y();
-        y.A();
-        y.B();
-
-        Z z = new Z();
-        // Can't call A() on Z because it's sealed in Y
-        z.B();
-    }
-}
-
-class X
-{
-    protected virtual void A()
-    {
-        Console.WriteLine("Executing A in class X");
-    }
-
-    protected virtual void B()
-    {
-        Console.WriteLine("Executing B in class X");
-    }
-}
-
-class Y : X
-{
-    sealed protected override void A()
-    {
-        Console.WriteLine("Executing A in class Y");
-    }
-
-    protected override void B()
-    {
-        Console.WriteLine("Executing B in class Y");
-    }
-}
-
-class Z : Y
-{
-    // Can't override A() because it's sealed in Y
-
-    protected override void B()
-    {
-        Console.WriteLine("Executing B in class Z");
+        Child child = new Child();
+        child.D();
+        child.F();
     }
 }
