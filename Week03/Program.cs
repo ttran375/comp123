@@ -1,147 +1,50 @@
-﻿namespace Week03
+﻿namespace Week04;
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+class Program
 {
-    /**
-    * This implementation will not match the lab specs
-    */
-    class Date
+    static void Main()
     {
-        public int Year { get; private set; }
-        public int Month { get; private set; }
-        public int Day { get; private set; }
-        public Date(int year, int month, int day)
-        => (Year, Month, Day) = (year, month, day);
+        string filename = "people.txt"; // Update with your CSV file path
 
-        public override string ToString()
-        => $"{Year}-{Month:D2}-{Day:D2}";
-
-        public void Add(int days)
+        TextReader reader = new StreamReader(filename);  //Declare and initialise a text reader
+        List<Person> persons = new List<Person>();      //list to store the objects                                          
+        string line = reader.ReadLine();                 //read the first line
+        while (line != null)                              //read the first line
         {
-            Day += days;
-            Normalize();
+            string[] values = line.Split('\t');
+            string name = values[0];
+            double weight = Convert.ToDouble(values[1]);
+            int age = Convert.ToInt32(values[2]);
+            bool isMarried = Convert.ToBoolean(values[3]);
+            persons.Add(new Person(name, age, weight, isMarried)); //add object to the list
+            line = reader.ReadLine();                      //read the next line
         }
 
-        public void Add(int months, int days)
+        reader.Close();                                  //Now close the stream object
+
+
+        // Now, the 'persons' list contains the data as Person objects
+        // You can use this list as needed in your application
+
+        // print the list
+        foreach (Person person in persons)
         {
-            Day += days;
-            Month += months;
-            Normalize();
+            Console.WriteLine(person);
         }
 
-        public void Add(Date date)
-        {
-            Day += date.Day;
-            Month += date.Month;
-            Year += date.Year;
-            Normalize();
-        }
-
-        private void Normalize()
-        {
-            // I am going to assume that all months have 30 days
-            while (Day > 30)
-            {
-                Day -= 30;
-                Month++;
-            }
-
-            while (Month > 12)
-            {
-                Month -= 12;
-                Year++;
-            }
-        }
-    }
-
-
-    enum Gender
-    {
-        Male, Female, Neutral
-    }
-
-    class Astronaut
-    {
-        // Static memeber are shared by the entire class
-        static int COUNT = 0, MAX = 6;
-        public string Name { get; }
-        public string Nationality { get; }
-        public Gender Gender { get; }
-
-        // Private constructor prevents instantiation outside of the class
-
-        private Astronaut(string name, string nationality, Gender gender = Gender.Female)
-        {
-            (Name, Nationality, Gender) = (name, nationality, gender);
-            COUNT++;
-        }
-
-        public override string ToString()
-        => $"{Nationality}\t{Name}\t{Gender}";
-
-        public static Astronaut CreateAstronaut(string name, string nationality, Gender gender = Gender.Female)
-        {
-            // Check if there is room for another astronaut before instantiation
-            if (COUNT < MAX)
-                return new Astronaut(name, nationality, gender);
-            else
-                return null; //null is a stand in for any type
-        }
-
-        public static List<Astronaut> CreateAstronautList()
-        {
-            return
-            new List<Astronaut>()
-            {
-            CreateAstronaut("Sushmita Armstrong", "US", Gender.Male),
-            CreateAstronaut("Sarah Hadfield", "Canada", Gender.Male),
-            CreateAstronaut("Shannon Magee", "US", Gender.Male),
-            CreateAstronaut("Gurleen Buttar", "Canada"),
-            CreateAstronaut("Haseeb Siddiqi", "US"),
-            CreateAstronaut("Ayushika Mahajan", "Canada", Gender.Female),
-            };
-        }
-    }
-
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            //TestDate();
-            //TestAstronaut();
-            DemoFileIO();
-        }
-
-        static void DemoFileIO()
-        {
-            List<Astronaut> astronauts = Astronaut.CreateAstronautList();
-            ////writing to a file
-
-            ////STEP II - Create a StreamWriter object
-            //TextWriter writer = new StreamWriter("astronaut.txt");
-
-            ////STEP III - Write to the file
-            //foreach (var item in astronauts)
-            //{
-            // writer.WriteLine(item);
-            //}
-
-            ////STEP IV - Close the StreamWrite object
-            //writer.Close();
-            //reading a file
-
-            //STEP II - Create a StreamReader object
-            TextReader reader = new StreamReader("astronaut.txt");
-            //STEP III - Write to the file
-            string line = reader.ReadLine();
-
-            while (line != null)
-            {
-                string[] parts = line.Split('\t');
-                Console.WriteLine($"{Convert.ToInt32(parts[2]) + 100}");
-                line = reader.ReadLine();
-            }
-
-            //STEP IV - Close the StreamReader object
-            reader.Close();
-        }
+        // using (StreamReader sr = new StreamReader("people.csv"))
+        // {
+        //     string line;
+        //     while ((line = sr.ReadLine()) != null)
+        //     {
+        //         string[] values = line.Split(',');
+        //         string name = values[0];
+        //         Console.WriteLine(name);
+        //     }
+        // }
     }
 }

@@ -1,50 +1,60 @@
-﻿namespace Week04;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text.Json;
 
-class Program
+public class Item
 {
-    static void Main()
+    public string Name { get; set; }
+    public int Quantity { get; set; }
+    public double Price { get; set; }
+}
+
+public class Address
+{
+    public string Street { get; set; }
+    public string PostalCode { get; set; }
+}
+
+public class Person
+{
+    public string Name { get; set; }
+    public Address WorkAddress { get; set; }
+    public Address HomeAddress { get; set; }
+    public List<string> Children { get; set; }
+}
+
+public class Program
+{
+    public static void Main(string[] args)
     {
-        string filename = "people.txt"; // Update with your CSV file path
+        // Serialize Item
+        Item item = new Item { Name = "Bananas", Quantity = 2, Price = 0.49 };
+        File.WriteAllText("item.json", JsonSerializer.Serialize(item));
 
-        TextReader reader = new StreamReader(filename);  //Declare and initialise a text reader
-        List<Person> persons = new List<Person>();      //list to store the objects                                          
-        string line = reader.ReadLine();                 //read the first line
-        while (line != null)                              //read the first line
+        // Serialize Person
+        Person p = new Person
         {
-            string[] values = line.Split('\t');
-            string name = values[0];
-            double weight = Convert.ToDouble(values[1]);
-            int age = Convert.ToInt32(values[2]);
-            bool isMarried = Convert.ToBoolean(values[3]);
-            persons.Add(new Person(name, age, weight, isMarried)); //add object to the list
-            line = reader.ReadLine();                      //read the next line
+            Name = "Narendra",
+            Children = "Larry Curly Moe".Split().ToList(),
+            HomeAddress = new Address { Street = "20 Sheppard Avenue", PostalCode = "M1B6E8" },
+            WorkAddress = new Address { Street = "941 Progress Avenue", PostalCode = "M1K5E9" }
+        };
+        File.WriteAllText("person.json", JsonSerializer.Serialize(p));
+
+        // Deserialize Item
+        using (TextReader reader = new StreamReader("item.json"))
+        {
+            Item deserializedItem = JsonSerializer.Deserialize<Item>(reader.ReadToEnd());
+            Console.WriteLine($"Item: {deserializedItem.Name}, Quantity: {deserializedItem.Quantity}, Price: {deserializedItem.Price}");
         }
 
-        reader.Close();                                  //Now close the stream object
-
-
-        // Now, the 'persons' list contains the data as Person objects
-        // You can use this list as needed in your application
-
-        // print the list
-        foreach (Person person in persons)
+        // Deserialize Person
+        using (TextReader reader = new StreamReader("person.json"))
         {
-            Console.WriteLine(person);
+            Person deserializedPerson = JsonSerializer.Deserialize<Person>(reader.ReadToEnd());
+            Console.WriteLine($"Person: {deserializedPerson.Name}, Children: {string.Join(", ", deserializedPerson.Children)}");
         }
-
-        // using (StreamReader sr = new StreamReader("people.csv"))
-        // {
-        //     string line;
-        //     while ((line = sr.ReadLine()) != null)
-        //     {
-        //         string[] values = line.Split(',');
-        //         string name = values[0];
-        //         Console.WriteLine(name);
-        //     }
-        // }
     }
 }
