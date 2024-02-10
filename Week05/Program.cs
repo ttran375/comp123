@@ -1,83 +1,56 @@
-﻿class Program
+﻿
+
+using System;
+class Program
 {
     static void Main(string[] args)
     {
-        // Create a new Person object with a name and a new Address
-        Person person = new Person("John Doe", new Address("123", "Main St", "Anytown", "Anystate", "AnyCountry", "AnyProvince", "12345"));
+        X x = new X();
+        x.A();
+        x.B();
 
-        // Add some phone numbers to the person
-        person.AddPhoneNumber(new PhoneNumber("123-456-7890", "Home"));
-        person.AddPhoneNumber(new PhoneNumber("098-765-4321", "Mobile"));
+        Y y = new Y();
+        y.A();
+        y.B();
 
-        // Print out the person's name, address, and phone numbers
-        Console.WriteLine($"Name: {person.Name}");
-        Console.WriteLine($"Address: {person.Address}");
-        foreach (PhoneNumber phoneNumber in person.PhoneNumbers)
-        {
-            Console.WriteLine(phoneNumber);
-        }
+        Z z = new Z();
+        // Can't call A() on Z because it's sealed in Y
+        z.B();
     }
 }
 
-public class Address
+class X
 {
-    public string StreetNumber { get; set; }
-    public string StreetName { get; set; }
-    public string City { get; set; }
-    public string State { get; set; }
-    public string Country { get; set; }
-    public string StateProvince { get; set; }
-    public string StateZipCode { get; set; }
-
-    public Address(string streetNumber, string streetName, string city, string state, string country, string stateProvince, string stateZipCode)
+    protected virtual void A()
     {
-        StreetNumber = streetNumber;
-        StreetName = streetName;
-        City = city;
-        State = state;
-        Country = country;
-        StateProvince = stateProvince;
-        StateZipCode = stateZipCode;
+        Console.WriteLine("Executing A in class X");
     }
 
-    public override string ToString()
+    protected virtual void B()
     {
-        return $"{StreetNumber} {StreetName}, {City}, {State}, {Country}, {StateProvince}, {StateZipCode}";
+        Console.WriteLine("Executing B in class X");
     }
 }
 
-public class PhoneNumber
+class Y : X
 {
-    public string Number { get; set; }
-    public string Type { get; set; } // e.g., Mobile, Home, Work
-
-    public PhoneNumber(string number, string type)
+    sealed protected override void A()
     {
-        Number = number;
-        Type = type;
+        Console.WriteLine("Executing A in class Y");
     }
 
-    public override string ToString()
+    protected override void B()
     {
-        return $"{Type}: {Number}";
+        Console.WriteLine("Executing B in class Y");
     }
 }
 
-class Person
+class Z : Y
 {
-    public string Name { get; set; }
-    public Address Address { get; private set; }
-    public List<PhoneNumber> PhoneNumbers { get; set; }
+    // Can't override A() because it's sealed in Y
 
-    public Person(string name, Address address)
+    protected override void B()
     {
-        Name = name;
-        Address = address;
-        PhoneNumbers = new List<PhoneNumber>();
-    }
-
-    public void AddPhoneNumber(PhoneNumber phoneNumber)
-    {
-        PhoneNumbers.Add(phoneNumber);
+        Console.WriteLine("Executing B in class Z");
     }
 }
