@@ -2,9 +2,18 @@
 {
     static void Main(string[] args)
     {
-        Address address = new Address("123", "Main St", "Anytown", "Anystate", "AnyCountry", "12345", "AnyProvince");
-        Person person = new Person(address);
-        System.Console.WriteLine(person.ToString());
+        // Create a new Person object with a new Address
+        Person person = new Person(new Address("123", "Main St", "Anytown", "Anystate", "AnyCountry", "AnyProvince", "12345"));
+
+        // Add some phone numbers to the person
+        person.AddPhoneNumber(new PhoneNumber("123-456-7890", "Home"));
+        person.AddPhoneNumber(new PhoneNumber("098-765-4321", "Mobile"));
+
+        // Print out the person's phone numbers
+        foreach (PhoneNumber phoneNumber in person.PhoneNumbers)
+        {
+            Console.WriteLine(phoneNumber);
+        }
     }
 }
 
@@ -35,8 +44,36 @@ public class Address
     }
 }
 
+public class PhoneNumber
+{
+    public string Number { get; set; }
+    public string Type { get; set; } // e.g., Mobile, Home, Work
+
+    public PhoneNumber(string number, string type)
+    {
+        Number = number;
+        Type = type;
+    }
+
+    public override string ToString()
+    {
+        return $"{Type}: {Number}";
+    }
+}
+
 class Person
 {
     private Address address;
-    public Person(Address address) { this.address = address; }
+    public List<PhoneNumber> PhoneNumbers { get; set; }
+
+    public Person(Address address)
+    {
+        this.address = address;
+        PhoneNumbers = new List<PhoneNumber>();
+    }
+
+    public void AddPhoneNumber(PhoneNumber phoneNumber)
+    {
+        PhoneNumbers.Add(phoneNumber);
+    }
 }
