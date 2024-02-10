@@ -17,75 +17,13 @@ public class Address
     string StateProvince;
     string StateZipCode;
 
-    public string getStreetNumber()
-    {
-        return this.StreetNumber;
-    }
-
-    public void setStreetNumber(string StreetNumber)
-    {
-        this.StreetNumber = StreetNumber;
-    }
-
-    public string getStreetName()
-    {
-        return this.StreetName;
-    }
-
-    public void setStreetName(string StreetName)
-    {
-        this.StreetName = StreetName;
-    }
-
-    public string getCity()
-    {
-        return this.City;
-    }
-
-    public void setCity(string City)
-    {
-        this.City = City;
-    }
-
-    public string getState()
-    {
-        return this.State;
-    }
-
-    public void setState(string State)
-    {
-        this.State = State;
-    }
-
-    public string getCountry()
-    {
-        return this.Country;
-    }
-
-    public void setCountry(string Country)
-    {
-        this.Country = Country;
-    }
-
-    public string getStateProvince()
-    {
-        return this.StateProvince;
-    }
-
-    public void setStateProvince(string StateProvince)
-    {
-        this.StateProvince = StateProvince;
-    }
-
-    public string getStateZipCode()
-    {
-        return this.StateZipCode;
-    }
-
-    public void setStateZipCode(string StateZipCode)
-    {
-        this.StateZipCode = StateZipCode;
-    }
+    public string StreetNumber { get; set; }
+    public string StreetName { get; set; }
+    public string City { get; set; }
+    public string State { get; set; }
+    public string Country { get; set; }
+    public string StateProvince { get; set; }
+    public string StateZipCode { get; set; }
 
 
     public Address(string streetNumber, string streetName, string city, string state, string country, string stateProvince, string stateZipCode)
