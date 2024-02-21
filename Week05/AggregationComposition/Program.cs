@@ -34,9 +34,9 @@ class Program
 {
     static void Main()
     {
-        House house = new House();
-        Address address = new Address();
-        Person person = new Person(address);
+        House house = new();
+        Address address = new();
+        Person person = new(address);
 
         Console.WriteLine("Objects created successfully.");
     }
