@@ -87,8 +87,8 @@
     {
         public static void Main(string[] args)
         {
-            //TestBird();
-            //TestDrawing();
+            TestBird();
+            TestDrawing();
             PersonTester.Run();
         }
         static void TestBird()
