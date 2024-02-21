@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Week06
+﻿namespace Week06
 {
     #region Bird
     interface ISingable
@@ -51,8 +45,8 @@ namespace Week06
 
     public class Address
     {
-        public string Number { get; set; }
-        public string Street { get; set; }
+        public required string Number { get; set; }
+        public required string Street { get; set; }
         public override string ToString()
             => $"{Number} {Street}";
     }
@@ -83,7 +77,7 @@ namespace Week06
     {
         public static void Run()
         {
-            Person p1 = new Person("shannon", "leigh", "mcgee", new Address { Number = "941", Street = "Progress Avenue" }, 15);
+            Person p1 = new("shannon", "leigh", "mcgee", new Address { Number = "941", Street = "Progress Avenue" }, 15);
             p1.Address.Street = "Markham Road";
             Console.WriteLine(p1);
         }
@@ -99,7 +93,7 @@ namespace Week06
         }
         static void TestBird()
         {
-            Bird bird = new Bird();
+            Bird bird = new();
             bird.Sings();
             string dish = "pizza";
             Console.WriteLine($"I {(bird.Like(dish) ? "" : "do not ")}like {dish}");
@@ -108,7 +102,8 @@ namespace Week06
         }
         static void TestDrawing()
         {
-            List<DrawingObject> objs = new List<DrawingObject> {
+            List<DrawingObject> objs = new()
+            {
                 new DrawingObject(),
                 new Square(),
                 new Line(),
