@@ -1,35 +1,35 @@
 # Week 1
 
 1. [Fields](Fields)
-1. [Methods](Methods)
-1. [Constructors](Constructors)
+1. Methods
+1. Constructors
 
 # Week 2
 
-1. [Properties](Properties)
-1. [List](List)
-1. [Enum](Enum)
-1. [FileIO](FileIO)
+1. Properties
+1. List
+1. Enum
+1. FileIO
 
 # Week 3
 
-1. [Static](Static)
-1. [Class Properties](ClassProperties)
-1. [Class](Class)
-1. [Operator Overloading](OperatorOverloading)
-1. [Partial Nested](PartialNested)
+1. Static
+1. Class Properties
+1. Class
+1. Operator Overloading
+1. Partial Nested
 
 # Week 4
 
-1. [Serialization](Serialization)
+1. Serialization
 
 # Week 5
 
-1. [Inheritance](Inheritance)
-1. [Aggregation Composition](AggregationComposition)
-1. [Sealed Abstract](SealedAbstract)
+1. Inheritance
+1. Aggregation Composition
+1. Sealed Abstract
 
 # Week 6
 
-1. [Polymorphism](Polymorphism)
-1. [Interface](Interface)
+1. Polymorphism
+1. Interface
