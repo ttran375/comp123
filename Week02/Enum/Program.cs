@@ -10,8 +10,7 @@ class Program
         Days day = (Days)Convert.ToInt32(Console.ReadLine());
         switch (day)
         {
-            case Days.Mon:
-            case Days.Wed:
+            case Days.Sun:
                 Console.WriteLine($"{day} is a Home day");
                 break;
             default:
