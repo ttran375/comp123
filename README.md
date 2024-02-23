@@ -34,3 +34,8 @@
 
 1. [Polymorphism](Polymorphism)
 1. [Interface](Interface)
+
+# Week 7
+
+1. [Exception](Polymorphism)
+1. [Unit Testing](UnitTesting)
