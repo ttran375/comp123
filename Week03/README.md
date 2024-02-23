@@ -3,5 +3,5 @@
 1. [Static](Static)
 1. [Properties](Properties)
 1. [Class](Class)
-1. [Overloading](Overloading)
-1. [PartialNested](PartialNested)
+1. [Operator Overloading](OperatorOverloading)
+1. [Partial Nested](PartialNested)
