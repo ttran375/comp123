@@ -16,7 +16,7 @@
 
 1. [Static](Static)
 1. [Class Properties](ClassProperties)
-1. [Class](Class)
+1. [Class Members](ClassMembers)
 1. [Operator Overloading](OperatorOverloading)
 1. [Partial Nested](PartialNested)
 
