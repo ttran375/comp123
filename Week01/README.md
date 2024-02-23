@@ -1,5 +1,5 @@
 # Week 1
 
-- [Fields](Fields)
-- [Methods](Methods)
-- [Constructors](Constructors)
+1. [Fields](Fields)
+1. [Methods](Methods)
+1. [Constructors](Constructors)
