@@ -39,5 +39,5 @@
 
 ## Week 7
 
-1. [Exception](Polymorphism)
-1. [Unit Testing](UnitTesting)
+1. [Exception](Exception)
+1. Unit Testing
