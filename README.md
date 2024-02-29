@@ -2,42 +2,34 @@
 
 ## Week 1
 
-1. [Types](Types)
-1. [Fields](Fields)
-1. [Methods](Methods)
-1. [Constructors](Constructors)
+- In-Class Exercises: [Types](Types), [Fields](Fields), [Methods](Methods), [Constructors](Constructors)
+- Labs: [Car](https://github.com/ttran375/comp123-lab2), [Date](https://github.com/ttran375/comp123-lab3)
 
 ## Week 2
 
-1. [Properties](Properties)
-1. [List](List)
-1. [Enum](Enum)
-1. [FileIO](FileIO)
+- In-Class Exercises: [Properties](Properties), [List](List), [Enum](Enum), [FileIO](FileIO)
+- Labs: [Pets](https://github.com/ttran375/comp123-lab5), [Medals](https://github.com/ttran375/comp123-lab6)
 
 ## Week 3
 
-1. [Static](Static)
-1. [Class Properties](ClassProperties)
-1. [Class Members](ClassMembers)
-1. [Operator Overloading](OperatorOverloading)
-1. [Partial Nested](PartialNested)
+- In-Class Exercises: [Static](Static), [Class Properties](ClassProperties), [Class Members](ClassMembers), [Operator Overloading](OperatorOverloading), [Partial Nested](PartialNested)
+- Labs: [Time](https://github.com/ttran375/comp123-lab8), [Song](https://github.com/ttran375/comp123-lab9)
 
 ## Week 4
 
-1. [Serialization](Serialization)
+- In-Class Exercises: [Serialization](Serialization)
+- Labs: [Complex](https://github.com/ttran375/comp123-lab12), [Atom]((https://github.com/ttran375/comp123-lab13)
 
 ## Week 5
 
-1. [Inheritance](Inheritance)
-1. [Aggregation Composition](AggregationComposition)
-1. [Sealed Abstract](SealedAbstract)
+- In-Class Exercises: [Inheritance](Inheritance), [Aggregation Composition](AggregationComposition), [Sealed Abstract](SealedAbstract)
+- Labs: [Theatre](https://github.com/ttran375/comp123-lab18), [Tiktok (Optional)](https://github.com/ttran375/Assignment_02_Tiktok1)
 
 ## Week 6
 
-1. [Polymorphism](Polymorphism)
-1. [Interface](Interface)
+- In-Class Exercises: [Polymorphism](Polymorphism), [Interface](Interface)
+- Labs: Inheritance Shape
 
 ## Week 7
 
-1. [Exception](Exception)
-1. Unit Testing
+- Test: StoreApp
