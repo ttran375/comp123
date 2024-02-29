@@ -18,7 +18,7 @@
 ## Week 4
 
 - In-Class Exercises: [Serialization](Serialization)
-- Labs: [Complex](https://github.com/ttran375/comp123-lab12), [Atom]((https://github.com/ttran375/comp123-lab13)
+- Labs: [Complex](https://github.com/ttran375/comp123-lab12), [Atom](https://github.com/ttran375/comp123-lab13)
 
 ## Week 5
 
