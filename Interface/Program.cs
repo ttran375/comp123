@@ -104,11 +104,11 @@ interface IEmployee
 public class Employee(string initialName) : IEmployee
 {
     public static int numberOfEmployees;
-    private string name = initialName ?? throw new ArgumentNullException(nameof(initialName));
+    private string _name = initialName ?? throw new ArgumentNullException(nameof(initialName));
     public string Name
     {
-        get => name;
-        set => name = value;
+        get => _name;
+        set => _name = value;
     }
 
     private readonly int _counter = ++numberOfEmployees;
