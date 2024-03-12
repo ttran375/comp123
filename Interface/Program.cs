@@ -104,7 +104,6 @@ interface IEmployee
 public class Employee(string initialName) : IEmployee
 {
     public static int NumberOfEmployees;
-
     public string Name { get; set; } = initialName ?? throw new ArgumentNullException(nameof(initialName));
     public int Counter { get; } = ++NumberOfEmployees;
 }
