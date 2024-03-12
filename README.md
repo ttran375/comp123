@@ -1,5 +1,9 @@
 # Programming 2
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ttran375/comp123)
+
+[![Lint](https://github.com/ttran375/comp123/actions/workflows/main.yml/badge.svg)](https://github.com/ttran375/comp123/actions/workflows/main.yml)
+
 ## Week 1
 
 - In-Class Exercises: [Types](Types), [Fields](Fields), [Methods](Methods), [Constructors](Constructors)
