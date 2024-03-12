@@ -27,9 +27,13 @@
 
 ## Week 6
 
-- In-Class Exercises: [Polymorphism](Polymorphism), [Interface](Interface)
-- Labs: Inheritance Shape
-
 ## Week 7
 
-- Test: StoreApp
+- Test: [StoreApp](https://github.com/ttran375/comp123-test1)
+
+## Week 8
+
+## Week 9
+
+- In-Class Exercises: [Polymorphism](Polymorphism), [Interface](Interface)
+- Labs: [Inheritance Shape](https://github.com/ttran375/comp123-lab16)
