@@ -3,28 +3,30 @@ using System.Xml.Serialization;
 
 public class Item
 {
-    public required string Name { get; set; }
+    public string Name { get; set; }
     public int Quantity { get; set; }
     public double Price { get; set; }
 }
 
 public class Address
 {
-    public required string Street { get; set; }
-    public required string PostalCode { get; set; }
+    public string Street { get; set; }
+    public string PostalCode { get; set; }
 }
 
 public class Person
 {
-    public required string Name { get; set; }
-    public required Address WorkAddress { get; set; }
-    public required Address HomeAddress { get; set; }
-    public required List<string> Children { get; set; }
+    public string Name { get; set; }
+    public Address WorkAddress { get; set; }
+    public Address HomeAddress { get; set; }
+    public List<string> Children { get; set; }
 }
 
 public class Student
 {
-    // Define the properties of the Student class if not already defined
+    public string Name { get; set; }
+    public Address WorkAddress { get; set; }
+    public Address HomeAddress { get; set; }
 }
 
 class Program
@@ -51,7 +53,7 @@ class Program
         Person person = new Person
         {
             Name = "Narendra",
-            Children = "Larry Curly Moe".Split().ToList<string>(),
+            Children = new List<string>("Larry Curly Moe".Split()),
             HomeAddress = new Address { Street = "20 Sheppard Avenue", PostalCode = "M1B6E8" },
             WorkAddress = new Address { Street = "941 Progress Avenue", PostalCode = "M1K5E9" }
         };
