@@ -111,10 +111,10 @@ public class Employee(string initialName) : IEmployee
         set => name = value;
     }
 
-    private readonly int counter = ++numberOfEmployees;
+    private readonly int _counter = ++numberOfEmployees;
     public int Counter
     {
-        get => counter;
+        get => _counter;
     }
 }
 
