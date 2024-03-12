@@ -103,19 +103,10 @@ interface IEmployee
 
 public class Employee(string initialName) : IEmployee
 {
-    public static int numberOfEmployees;
-    private string _name = initialName ?? throw new ArgumentNullException(nameof(initialName));
-    public string Name
-    {
-        get => _name;
-        set => _name = value;
-    }
+    public static int NumberOfEmployees;
 
-    private readonly int _counter = ++numberOfEmployees;
-    public int Counter
-    {
-        get => _counter;
-    }
+    public string Name { get; set; } = initialName ?? throw new ArgumentNullException(nameof(initialName));
+    public int Counter { get; } = ++NumberOfEmployees;
 }
 
 interface IQux : IBar, IBaz
