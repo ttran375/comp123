@@ -41,3 +41,12 @@
 
 - In-Class Exercises: [Polymorphism](Polymorphism), [Interface](Interface)
 - Labs: [Inheritance Shape](https://github.com/ttran375/comp123-lab16)
+
+## Week 10
+
+- In-Class Exercises: Calculator
+  
+## Week 11
+
+- In-Class Exercises: Person Form
+- Labs: [The Fraction Calculator GUI](https://github.com/ttran375/comp123-lab19)
