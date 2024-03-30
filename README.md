@@ -50,3 +50,8 @@
 
 - In-Class Exercises: Person Form
 - Labs: [The Fraction Calculator GUI](https://github.com/ttran375/comp123-lab19)
+
+## Week 12
+
+- In-Class Exercises: [Student Management Form](https://github.com/ttran375/StudentManagement)
+- Labs: [The Premier Application](https://github.com/ttran375/comp123-lab20)
