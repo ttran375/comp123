@@ -1,4 +1,4 @@
-# This test will be the same format as the first test, however for convenience you are given a single document.
+# This test will be the same format as the first test, however for convenience you are given a single document
 
 The supporting class hero is given and will be used for all the
 questions.
@@ -11,7 +11,7 @@ The sample executables and supporting class file is given.
 
 Each question will be done in separate projects. (The name of the
 projects will be «firstname»\_ques1) so for me the folders will be
-called **narendra_ques1**, **narendra_ques2** and **narendra_ques3**.
+called **narendra_ques1**, **narendra_ques2** and **ques3**.
 
 You will submit a zip file of your entire project folder (You need to
 submit 3 zip files)
@@ -41,14 +41,14 @@ Press enter to see the next query ...
 
 Examine the output of the **Question2.exe**.
 
-1.  In this question, you will use the static **GetHeros()** of the Hero
+1. In this question, you will use the static **GetHeros()** of the Hero
     class to create a dictionary with the name of the hero as the key
     and the hero obj as the value.
 
-2.  Print out the value of the key **"Iron Man"** to determine the linq
+2. Print out the value of the key **"Iron Man"** to determine the linq
     queries to write.
 
-3.  Use a linq query to print all the heros from the dictionary who are
+3. Use a linq query to print all the heros from the dictionary who are
     under 25
 
 ```
