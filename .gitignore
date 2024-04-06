@@ -310,3 +310,5 @@ paket-files/
 *.pyi
 
 obj
+
+.mono
